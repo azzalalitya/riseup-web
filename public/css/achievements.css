@@ -1,0 +1,155 @@
+/* ============================================================
+   Pencapaian (Badge + Leaderboard) — RiseUp
+   Memakai token dari riseup-ui.css
+   ============================================================ */
+
+.ach-page { max-width: 960px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.ach-topbar {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px; margin-bottom: 22px;
+}
+.ach-topbar .eyebrow {
+    text-transform: uppercase; letter-spacing: .12em; font-size: 12px;
+    font-weight: 700; color: var(--riseup-orange-dark); margin: 0 0 6px;
+}
+.ach-topbar h1 { margin: 0 0 6px; font-size: 26px; }
+.ach-topbar .subtitle { margin: 0; color: var(--riseup-muted); max-width: 52ch; }
+.ach-back {
+    flex: none; text-decoration: none; padding: 10px 16px;
+    border-radius: var(--riseup-radius-sm); background: var(--riseup-white);
+    border: 1px solid var(--riseup-line); color: var(--riseup-dark); font-weight: 600;
+    transition: transform .15s ease, box-shadow .2s ease;
+}
+.ach-back:hover { transform: translateY(-2px); box-shadow: var(--riseup-shadow-sm); }
+
+.ach-flash {
+    background: var(--riseup-green-soft); color: var(--riseup-green-dark);
+    border-radius: var(--riseup-radius-sm); padding: 12px 16px; margin-bottom: 18px;
+    font-weight: 600; animation: achPop .4s ease both;
+}
+
+.ach-section-head { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 14px; }
+.ach-section-head h2 { margin: 0; font-size: 18px; }
+.ach-section-head .count { color: var(--riseup-muted); font-size: 14px; }
+
+/* ---------- Grid badge ---------- */
+.badge-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px; margin-bottom: 34px;
+}
+.badge-card {
+    background: var(--riseup-white); border: 1px solid var(--riseup-line);
+    border-radius: var(--riseup-radius-md); padding: 18px 16px; text-align: center;
+    box-shadow: var(--riseup-shadow-sm); animation: achFadeUp .5s ease both;
+    position: relative;
+}
+.badge-card.locked { opacity: .62; filter: grayscale(0.9); }
+.badge-card .b-icon { font-size: 38px; line-height: 1; margin-bottom: 8px; }
+.badge-card.owned .b-icon { animation: achPop .5s ease both; }
+.badge-card .b-name { font-weight: 700; font-size: 14px; margin: 0 0 4px; color: var(--riseup-dark); }
+.badge-card .b-desc { font-size: 12px; color: var(--riseup-muted); margin: 0 0 10px; min-height: 30px; }
+.badge-card .b-earned {
+    font-size: 11px; color: var(--riseup-green-dark); font-weight: 700;
+    background: var(--riseup-green-soft); border-radius: 999px; padding: 3px 10px; display: inline-block;
+}
+.badge-card .b-progress { margin-top: 4px; }
+.badge-card .b-bar { height: 6px; background: var(--riseup-line); border-radius: 999px; overflow: hidden; }
+.badge-card .b-bar span {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, var(--riseup-orange), var(--riseup-orange-dark));
+    transition: width .6s ease;
+}
+.badge-card .b-progress-text { font-size: 11px; color: var(--riseup-muted); margin: 6px 0 0; }
+
+/* ---------- Leaderboard ---------- */
+.lb-card {
+    background: var(--riseup-white); border: 1px solid var(--riseup-line);
+    border-radius: var(--riseup-radius-lg); padding: 8px; box-shadow: var(--riseup-shadow-sm);
+    overflow: hidden;
+}
+.lb-row {
+    display: grid; grid-template-columns: 48px 1fr auto auto; align-items: center;
+    gap: 12px; padding: 12px 14px; border-radius: var(--riseup-radius-sm);
+}
+.lb-row + .lb-row { border-top: 1px solid var(--riseup-line); }
+.lb-row.is-me { background: var(--riseup-orange-soft); border-top-color: transparent; }
+.lb-rank { font-weight: 800; font-size: 16px; color: var(--riseup-muted); text-align: center; }
+.lb-row:nth-child(1) .lb-rank { color: #d97706; }
+.lb-name { font-weight: 700; color: var(--riseup-dark); }
+.lb-name small { display: block; font-weight: 500; color: var(--riseup-muted); font-size: 12px; }
+.lb-week { font-weight: 800; color: var(--riseup-orange-dark); }
+.lb-week small { font-weight: 500; color: var(--riseup-muted); font-size: 11px; }
+.lb-level {
+    font-size: 12px; font-weight: 700; color: var(--riseup-blue);
+    background: var(--riseup-blue-soft); padding: 3px 10px; border-radius: 999px;
+}
+.lb-me-note {
+    margin-top: 12px; padding: 10px 14px; border-radius: var(--riseup-radius-sm);
+    background: var(--riseup-cream); color: var(--riseup-muted); font-size: 13px; text-align: center;
+}
+.lb-empty { text-align: center; color: var(--riseup-muted); padding: 24px; }
+
+@keyframes achFadeUp { from { opacity: 0; transform: translateY(12px);} to { opacity: 1; transform: none; } }
+@keyframes achPop { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.12);} 100% { transform: scale(1); opacity: 1; } }
+
+@media (max-width: 620px) {
+    .ach-topbar { flex-direction: column; }
+    .lb-row { grid-template-columns: 40px 1fr auto; }
+    .lb-level { display: none; }
+}
+/* ===== NAVBAR RESET ===== */
+.riseup-navbar {
+    all: initial;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 24px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: Arial, sans-serif !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 48px rgba(31,41,55,0.10) !important;
+    margin-bottom: 24px !important;
+}
+.riseup-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+.riseup-brand-mark {
+    width: 38px !important; height: 38px !important;
+    border-radius: 50% !important;
+    background: #ff8a00 !important; color: #fff !important;
+    display: grid !important; place-items: center !important;
+    font-weight: 700 !important; overflow: hidden !important;
+    font-size: 16px !important;
+}
+.riseup-brand-text strong { display: block !important; font-size: 14px !important; font-weight: 700 !important; color: #1f2937 !important; }
+.riseup-brand-text span { font-size: 12px !important; color: #6b7280 !important; }
+.riseup-nav-actions {
+    display: flex !important; align-items: center !important;
+    gap: 4px !important; flex-wrap: wrap !important;
+}
+.riseup-nav-actions a, .riseup-nav-actions .riseup-nav-link {
+    all: unset !important;
+    padding: 8px 12px !important; border-radius: 8px !important;
+    text-decoration: none !important; color: #1f2937 !important;
+    font-size: 13px !important; font-weight: 500 !important;
+    cursor: pointer !important; display: inline-block !important;
+}
+.riseup-nav-actions a:hover, .riseup-nav-actions .riseup-nav-link:hover {
+    background: #fff3d4 !important;
+}
+.riseup-nav-button {
+    all: unset !important;
+    padding: 8px 14px !important; border-radius: 8px !important;
+    background: #ef4444 !important; color: #fff !important;
+    font-weight: 600 !important; font-size: 13px !important;
+    cursor: pointer !important; display: inline-block !important;
+}
+.logout-form { display: inline !important; margin: 0 !important; }

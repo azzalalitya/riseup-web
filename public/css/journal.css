@@ -1,0 +1,253 @@
+/* ============================================================
+   Jurnal Harian — RiseUp
+   Memakai design token dari riseup-ui.css (:root --riseup-*)
+   ============================================================ */
+
+.jrn-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+}
+
+/* ---------- Topbar ---------- */
+.jrn-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.jrn-topbar .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--riseup-orange-dark);
+    margin: 0 0 6px;
+}
+
+.jrn-topbar h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    color: var(--riseup-dark);
+}
+
+.jrn-topbar .subtitle {
+    margin: 0;
+    color: var(--riseup-muted);
+    max-width: 52ch;
+}
+
+.jrn-back {
+    flex: none;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: var(--riseup-radius-sm);
+    background: var(--riseup-white);
+    border: 1px solid var(--riseup-line);
+    color: var(--riseup-dark);
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .2s ease;
+}
+.jrn-back:hover { transform: translateY(-2px); box-shadow: var(--riseup-shadow-sm); }
+
+/* ---------- Flash ---------- */
+.jrn-flash {
+    border-radius: var(--riseup-radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+.jrn-flash.is-success { background: var(--riseup-green-soft); color: var(--riseup-green-dark); }
+.jrn-flash.is-error   { background: var(--riseup-red-soft);   color: var(--riseup-red-dark); }
+
+/* ---------- Kartu refleksi religius ---------- */
+.jrn-reflection {
+    position: relative;
+    border-radius: var(--riseup-radius-lg);
+    padding: 24px 26px;
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--riseup-orange), var(--riseup-orange-dark));
+    box-shadow: var(--riseup-shadow-md);
+    overflow: hidden;
+    animation: jrnFadeUp .5s ease both;
+}
+.jrn-reflection::after {
+    content: "";
+    position: absolute;
+    right: -30px; top: -30px;
+    width: 140px; height: 140px;
+    background: rgba(255,255,255,.14);
+    border-radius: 50%;
+}
+.jrn-reflection .rel-label {
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    opacity: .9; margin: 0 0 10px; font-weight: 700;
+}
+.jrn-reflection blockquote {
+    margin: 0; font-size: 19px; line-height: 1.5; font-weight: 600;
+}
+.jrn-reflection .rel-source {
+    margin: 12px 0 0; font-size: 13px; opacity: .85;
+}
+.jrn-reflection .rel-pref {
+    display: inline-block; margin-top: 4px;
+    background: rgba(255,255,255,.22);
+    padding: 3px 10px; border-radius: 999px; font-size: 12px;
+}
+
+/* ---------- Kartu prompt + form ---------- */
+.jrn-card {
+    background: var(--riseup-white);
+    border: 1px solid var(--riseup-line);
+    border-radius: var(--riseup-radius-lg);
+    padding: 24px 26px;
+    box-shadow: var(--riseup-shadow-sm);
+    margin-bottom: 20px;
+    animation: jrnFadeUp .6s ease both;
+}
+.jrn-card h2 { margin: 0 0 4px; font-size: 18px; }
+.jrn-card .hint { margin: 0 0 16px; color: var(--riseup-muted); font-size: 14px; }
+
+.jrn-prompt {
+    background: var(--riseup-orange-soft);
+    border-left: 4px solid var(--riseup-orange);
+    padding: 14px 16px;
+    border-radius: var(--riseup-radius-sm);
+    font-weight: 600;
+    color: var(--riseup-dark);
+    margin-bottom: 16px;
+}
+
+.jrn-textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+    border: 1px solid var(--riseup-line);
+    border-radius: var(--riseup-radius-sm);
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--riseup-dark);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+.jrn-textarea:focus {
+    outline: none;
+    border-color: var(--riseup-orange);
+    box-shadow: 0 0 0 3px rgba(255,138,0,.18);
+}
+
+.jrn-actions { margin-top: 16px; display: flex; align-items: center; gap: 14px; }
+
+.jrn-btn {
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--riseup-orange), var(--riseup-orange-dark));
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 22px;
+    border-radius: var(--riseup-radius-sm);
+    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+}
+.jrn-btn:hover { transform: translateY(-2px); box-shadow: var(--riseup-shadow-md); filter: brightness(1.03); }
+.jrn-btn:active { transform: translateY(0); }
+
+.jrn-xp-note { color: var(--riseup-muted); font-size: 13px; }
+
+/* ---------- Riwayat ---------- */
+.jrn-history h2 { font-size: 18px; margin: 6px 0 14px; }
+.jrn-entry {
+    background: var(--riseup-white);
+    border: 1px solid var(--riseup-line);
+    border-radius: var(--riseup-radius-md);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    box-shadow: var(--riseup-shadow-sm);
+    animation: jrnFadeUp .5s ease both;
+}
+.jrn-entry .entry-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px; gap: 10px;
+}
+.jrn-entry .entry-date { font-weight: 700; font-size: 14px; color: var(--riseup-dark); }
+.jrn-entry .entry-mood {
+    font-size: 12px; padding: 3px 10px; border-radius: 999px;
+    background: var(--riseup-blue-soft); color: var(--riseup-blue); font-weight: 600;
+}
+.jrn-entry .entry-prompt { color: var(--riseup-muted); font-size: 13px; margin: 0 0 6px; font-style: italic; }
+.jrn-entry .entry-answer { margin: 0; color: var(--riseup-dark); line-height: 1.55; }
+
+.jrn-empty {
+    text-align: center; color: var(--riseup-muted);
+    padding: 30px 10px; background: var(--riseup-cream-light);
+    border: 1px dashed var(--riseup-line); border-radius: var(--riseup-radius-md);
+}
+
+@keyframes jrnFadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 620px) {
+    .jrn-topbar { flex-direction: column; }
+    .jrn-reflection blockquote { font-size: 17px; }
+}
+/* ===== NAVBAR RESET ===== */
+.riseup-navbar {
+    all: initial;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 24px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: Arial, sans-serif !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 48px rgba(31,41,55,0.10) !important;
+    margin-bottom: 24px !important;
+}
+.riseup-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+.riseup-brand-mark {
+    width: 38px !important; height: 38px !important;
+    border-radius: 50% !important;
+    background: #ff8a00 !important; color: #fff !important;
+    display: grid !important; place-items: center !important;
+    font-weight: 700 !important; overflow: hidden !important;
+    font-size: 16px !important;
+}
+.riseup-brand-text strong { display: block !important; font-size: 14px !important; font-weight: 700 !important; color: #1f2937 !important; }
+.riseup-brand-text span { font-size: 12px !important; color: #6b7280 !important; }
+.riseup-nav-actions {
+    display: flex !important; align-items: center !important;
+    gap: 4px !important; flex-wrap: wrap !important;
+}
+.riseup-nav-actions a, .riseup-nav-actions .riseup-nav-link {
+    all: unset !important;
+    padding: 8px 12px !important; border-radius: 8px !important;
+    text-decoration: none !important; color: #1f2937 !important;
+    font-size: 13px !important; font-weight: 500 !important;
+    cursor: pointer !important; display: inline-block !important;
+}
+.riseup-nav-actions a:hover, .riseup-nav-actions .riseup-nav-link:hover {
+    background: #fff3d4 !important;
+}
+.riseup-nav-button {
+    all: unset !important;
+    padding: 8px 14px !important; border-radius: 8px !important;
+    background: #ef4444 !important; color: #fff !important;
+    font-weight: 600 !important; font-size: 13px !important;
+    cursor: pointer !important; display: inline-block !important;
+}
+.logout-form { display: inline !important; margin: 0 !important; }

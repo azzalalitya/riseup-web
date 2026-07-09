@@ -1,0 +1,307 @@
+:root {
+    --riseup-orange: #ff8a00;
+    --riseup-orange-dark: #f97316;
+    --riseup-orange-soft: #fff3d4;
+
+    --riseup-cream: #fff7df;
+    --riseup-cream-light: #fffdf5;
+
+    --riseup-green: #22c55e;
+    --riseup-green-dark: #16a34a;
+    --riseup-green-soft: #dcfce7;
+
+    --riseup-red: #ef4444;
+    --riseup-red-dark: #dc2626;
+    --riseup-red-soft: #fee2e2;
+
+    --riseup-blue-soft: #e0f2fe;
+    --riseup-blue: #0369a1;
+
+    --riseup-dark: #1f2937;
+    --riseup-muted: #6b7280;
+    --riseup-line: #e5e7eb;
+    --riseup-white: #ffffff;
+
+    --riseup-radius-sm: 12px;
+    --riseup-radius-md: 16px;
+    --riseup-radius-lg: 22px;
+    --riseup-radius-xl: 28px;
+
+    --riseup-shadow-sm: 0 10px 24px rgba(31, 41, 55, 0.07);
+    --riseup-shadow-md: 0 18px 48px rgba(31, 41, 55, 0.10);
+    --riseup-shadow-lg: 0 26px 70px rgba(31, 41, 55, 0.13);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--riseup-dark);
+    background:
+        radial-gradient(circle at 8% 4%, rgba(255, 138, 0, 0.16), transparent 26%),
+        radial-gradient(circle at 92% 16%, rgba(34, 197, 94, 0.10), transparent 22%),
+        linear-gradient(180deg, var(--riseup-cream), var(--riseup-cream-light));
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+.page {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 30px 0 56px;
+}
+
+.riseup-shell {
+    position: relative;
+}
+
+.riseup-shell::before {
+    content: "";
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    border-radius: 999px;
+    right: -140px;
+    top: 120px;
+    background: rgba(255, 138, 0, 0.08);
+    z-index: -1;
+}
+
+.riseup-navbar {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--riseup-shadow-sm);
+    border-radius: var(--riseup-radius-xl);
+    padding: 16px 18px;
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.riseup-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.riseup-brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    background: var(--riseup-orange-soft);
+    color: var(--riseup-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    box-shadow: inset 0 0 0 1px rgba(255, 138, 0, 0.12);
+}
+
+.riseup-brand-text strong {
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.riseup-brand-text span {
+    display: block;
+    color: var(--riseup-muted);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.riseup-nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.riseup-nav-link,
+.riseup-nav-button {
+    min-height: 42px;
+    padding: 11px 15px;
+    border-radius: 14px;
+    border: 0;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.riseup-nav-link {
+    background: var(--riseup-orange-soft);
+    color: var(--riseup-orange-dark);
+}
+
+.riseup-nav-link:hover {
+    background: #fed7aa;
+}
+
+.riseup-nav-link.is-green {
+    background: var(--riseup-green-soft);
+    color: var(--riseup-green-dark);
+}
+
+.riseup-nav-link.is-green:hover {
+    background: #bbf7d0;
+}
+
+.riseup-nav-button {
+    background: var(--riseup-red);
+    color: white;
+}
+
+.riseup-nav-button:hover {
+    background: var(--riseup-red-dark);
+}
+
+.riseup-hero {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 240, 0.92)),
+        radial-gradient(circle at right top, rgba(255, 138, 0, 0.18), transparent 28%);
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    box-shadow: var(--riseup-shadow-md);
+    border-radius: var(--riseup-radius-xl);
+    padding: 26px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.riseup-hero .eyebrow,
+.eyebrow {
+    color: var(--riseup-orange);
+    font-weight: 900;
+    margin: 0 0 8px;
+}
+
+.riseup-hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(30px, 4vw, 46px);
+    letter-spacing: -1px;
+    line-height: 1.04;
+}
+
+.riseup-hero p {
+    color: var(--riseup-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.riseup-hero-badge {
+    background: var(--riseup-orange);
+    color: white;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 900;
+    box-shadow: 0 14px 28px rgba(255, 138, 0, 0.22);
+}
+
+.card {
+    border-radius: var(--riseup-radius-lg);
+    box-shadow: var(--riseup-shadow-sm);
+}
+
+.section-head h2 {
+    margin-bottom: 6px;
+}
+
+.section-head p {
+    line-height: 1.5;
+}
+
+.btn,
+.btn-primary,
+.btn-logout {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-logout:hover {
+    transform: translateY(-1px);
+}
+
+input,
+select,
+textarea {
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+table {
+    background: white;
+}
+
+tbody tr:hover {
+    background: #fffaf0;
+}
+
+.riseup-empty {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    color: var(--riseup-muted);
+}
+
+@media (max-width: 860px) {
+    .page {
+        width: min(100% - 32px, 1120px);
+        padding-top: 20px;
+    }
+
+    .riseup-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .riseup-nav-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .riseup-nav-link,
+    .riseup-nav-button {
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .riseup-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .riseup-hero-badge {
+        width: fit-content;
+    }
+}
