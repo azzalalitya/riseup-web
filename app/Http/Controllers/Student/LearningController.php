@@ -101,6 +101,6 @@ class LearningController extends Controller
 
         return redirect()
             ->route('student.learning.index')
-            ->with('success', 'Materi berhasil diselesaikan. XP bertambah +' . $module->lrn_xp_reward . (($bm = app(BadgeService::class)->syncWithMessage(session('auth_id'))) ? ' ' . $bm : ''));
+            ->with('success', 'Materi berhasil diselesaikan. XP bertambah +' . $module->lrn_xp_reward . (($bm = app(\App\Services\BadgeService::class)->syncWithMessage(session('auth_id'))) ? ' ' . $bm : ''));
     }
 }

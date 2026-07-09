@@ -122,7 +122,7 @@ class CheckinController extends Controller
             $stat->save();
         }
 
-        $badgeMsg = app(BadgeService::class)->syncWithMessage(session('auth_id'));
+        $badgeMsg = app(\App\Services\BadgeService::class)->syncWithMessage(session('auth_id'));
 
         return redirect()
             ->route('student.checkin.index')

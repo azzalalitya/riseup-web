@@ -127,7 +127,7 @@ class JournalController extends Controller
             $message = 'Jurnal hari ini tersimpan. XP bertambah +' . $xpAdd;
         }
 
-        $badgeMsg = app(BadgeService::class)->syncWithMessage($userId);
+        $badgeMsg = app(\App\Services\BadgeService::class)->syncWithMessage($userId);
 
         return redirect()
             ->route('student.journal.index')

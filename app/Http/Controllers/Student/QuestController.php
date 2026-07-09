@@ -89,6 +89,6 @@ class QuestController extends Controller
 
         return redirect()
             ->route('student.quests.index')
-            ->with('success', 'Quest selesai. XP bertambah +' . $quest->qst_xp_reward . (($bm = app(BadgeService::class)->syncWithMessage(session('auth_id'))) ? ' ' . $bm : ''));
+            ->with('success', 'Quest selesai. XP bertambah +' . $quest->qst_xp_reward . (($bm = app(\App\Services\BadgeService::class)->syncWithMessage(session('auth_id'))) ? ' ' . $bm : ''));
     }
 }
